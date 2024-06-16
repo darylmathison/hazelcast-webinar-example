@@ -4,9 +4,12 @@
  * and open the template in the editor.
  */
 package com.darylmathison.webinarexamples.imap;
-import com.hazelcast.core.IMap;
+
+import static com.hazelcast.query.Predicates.equal;
+import static com.hazelcast.query.Predicates.not;
+
+import com.hazelcast.map.IMap;
 import com.hazelcast.query.Predicate;
-import static com.hazelcast.query.Predicates.*;
 import java.util.Collection;
 /**
  *

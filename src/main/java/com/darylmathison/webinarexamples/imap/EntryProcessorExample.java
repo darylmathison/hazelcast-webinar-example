@@ -5,17 +5,17 @@
  */
 package com.darylmathison.webinarexamples.imap;
 
-import com.hazelcast.map.AbstractEntryProcessor;
-import java.util.Map;
+import com.hazelcast.map.EntryProcessor;
+import java.util.Map.Entry;
 
 /**
  *
  * @author Daryl
  */
-public class EntryProcessorExample extends AbstractEntryProcessor<Long, Person> {
+public class EntryProcessorExample implements EntryProcessor<Long, Person, Person> {
 
     @Override
-    public Object process(Map.Entry<Long, Person> entry) {
+    public Person process(Entry<Long, Person> entry) {
         if(entry.getKey() > 200) {
             return entry.getValue();
         }

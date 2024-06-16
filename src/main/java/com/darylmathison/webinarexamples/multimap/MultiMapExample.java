@@ -2,9 +2,8 @@ package com.darylmathison.webinarexamples.multimap;
 
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IdGenerator;
-import com.hazelcast.core.MultiMap;
-import java.util.Collection;
+import com.hazelcast.multimap.MultiMap;
+import com.hazelcast.flakeidgen.FlakeIdGenerator;
 
 /**
  *
@@ -21,9 +20,8 @@ public class MultiMapExample {
         HazelcastInstance instance = Hazelcast.newHazelcastInstance();
         
         MultiMap<Long, Long> mMap = instance.getMultiMap("multi");
-        IdGenerator idGen = instance.getIdGenerator("gen");
-        IdGenerator valueGen = instance.getIdGenerator("value");
-        valueGen.init(START);
+        FlakeIdGenerator idGen = instance.getFlakeIdGenerator("gen");
+        FlakeIdGenerator valueGen = instance.getFlakeIdGenerator("value");
         
         long id = 0;
         
